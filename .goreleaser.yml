@@ -43,7 +43,7 @@ nix:
   - repository:
       owner: darkfronza
       name: nix
-      token: "{{ .Env.TAP_GITHUB_TOKEN }}"
+      token: "{{ .Env.GITHUB_TOKEN }}"
 
     commit_author:
       name: darkfronza
