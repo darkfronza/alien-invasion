@@ -10,7 +10,14 @@ import (
 	"github.com/darkfronza/alien-invasion/worldmap"
 )
 
+var Version string
+
 func main() {
+	if len(os.Args) == 2 && (os.Args[1] == "-v" || os.Args[1] == "version") {
+		fmt.Printf("alien-invasion simulator %s\n", Version)
+		os.Exit(0)
+	}
+
 	if len(os.Args) < 3 {
 		fmt.Printf("Usage: %s <map-file> <n-aliens>\n", os.Args[0])
 		os.Exit(0)
