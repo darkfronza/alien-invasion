@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+# ...
+
+version: 2
+project_name: alien-invasion
+
+builds:
+  - id: linux
+    goos:
+      - linux
+    goarch:
+      - amd64
+      - arm64
+
+archives:
+  - id: unix
+    ids:
+    - linux
+    name_template: >-
+      {{- .ProjectName}}_
+      {{- .Version}}_
+      {{- if eq .Os "darwin"}}mac{{else}}
+        {{- .Os}}
+      {{- end}}_
+      {{- .Arch}}
+  - id: windows
+    ids:
+      - windows
+    format_overrides:
+      - goos: windows
+        formats: [ 'zip' ]
+    name_template: "{{.ProjectName}}_{{.Version}}_{{.Os}}_{{.Arch}}"
+
+release:
+ # no templates available
+  github:
+    owner: darkfronza
+    name: "{{.ProjectName}}"
+
+  prerelease: auto
+
+nix:
+  - repository:
+      owner: darkfronza
+      name: nix
+      token: "{{ .Env.TAP_GITHUB_TOKEN }}"
+
+    commit_author:
+      name: darkfronza
+      email: darkfronza@gmail.com
+    homepage: https://github.com/darkfronza/{{.ProjectName}}
+    description: An alien invasion simulation tool
+    license: gpl3Only
+    ids:
+      - unix
