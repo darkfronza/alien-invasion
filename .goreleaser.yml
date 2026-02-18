@@ -37,6 +37,7 @@ release:
     owner: darkfronza
     name: "{{.ProjectName}}"
 
+  mode: replace
   prerelease: auto
 
 nix:
