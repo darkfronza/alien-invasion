@@ -44,7 +44,7 @@ nix:
   - repository:
       owner: darkfronza
       name: nix
-      token: "{{ .Env.GITHUB_TOKEN }}"
+      token: "{{ .Env.CROSS_REPO_TOKEN }}"
 
     commit_author:
       name: darkfronza
