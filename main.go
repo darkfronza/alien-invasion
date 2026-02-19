@@ -17,7 +17,7 @@ func main() {
 	// TODO: add daemon feature to test systemd on nix
 	if len(os.Args) == 2 && os.Args[1] == "daemon" {
 		fmt.Printf("daemon mode..... version=%s\n", Version)
-		time.Sleep(30 * time.Minute)
+		time.Sleep(40 * time.Minute)
 		os.Exit(0)
 	}
 
