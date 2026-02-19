@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"strconv"
+	"time"
 
 	"github.com/darkfronza/alien-invasion/simulation"
 	"github.com/darkfronza/alien-invasion/worldmap"
@@ -14,6 +15,12 @@ var Version string
 
 func main() {
 	// TODO: add daemon feature to test systemd on nix
+	if len(os.Args) == 2 && os.Args[1] == "daemon" {
+		fmt.Printf("daemon mode..... version=%s\n", Version)
+		time.Sleep(30 * time.Minute)
+		os.Exit(0)
+	}
+
 	if len(os.Args) == 2 && (os.Args[1] == "-v" || os.Args[1] == "version") {
 		fmt.Printf("alien-invasion simulator %s\n", Version)
 		os.Exit(0)
