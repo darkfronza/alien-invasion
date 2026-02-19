@@ -52,7 +52,7 @@ nix:
       name: darkfronza
       email: darkfronza@gmail.com
 
-    path: pkgs/{{.ProjectName}}/{{.ProjectName}_{{.Version}}.nix
+    path: "pkgs/{{.ProjectName}}/{{.ProjectName}}_{{.Version}}.nix"
 
     homepage: https://github.com/darkfronza/{{.ProjectName}}
     description: An alien invasion simulation tool
